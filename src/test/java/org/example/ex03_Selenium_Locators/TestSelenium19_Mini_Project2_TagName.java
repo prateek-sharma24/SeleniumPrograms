@@ -47,6 +47,7 @@ public class TestSelenium19_Mini_Project2_TagName {
         Thread.sleep(3000);
         WebElement error_message = driver.findElement(By.className("invalid-reason"));
         Assert.assertEquals(error_message.getText(),"The email address you entered is incorrect.");
+        //Close the session for the website
         driver.quit();
     }
 }
