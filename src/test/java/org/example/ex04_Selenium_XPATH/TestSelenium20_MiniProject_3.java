@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class TestSelenium21_MiniProject_3 {
+public class TestSelenium20_MiniProject_3 {
     @Owner("Prateek")
     @Severity(SeverityLevel.CRITICAL)
      @Description("Verify that the user has logged in to the platform and verify the appointment page")
