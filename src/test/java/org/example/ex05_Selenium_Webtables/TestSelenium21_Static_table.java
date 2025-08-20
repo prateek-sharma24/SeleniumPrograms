@@ -32,9 +32,16 @@ public class TestSelenium21_Static_table {
                 //System.out.println(dynamic_path);
                 String data = driver.findElement(By.xpath(dynamic_path)).getText();
                 System.out.println(data);
+                if(data.contains("Giovanni Rovelli")) {
+                    String country_path =dynamic_path+"/following-sibling::td";
+                    String country_text=driver.findElement(By.xpath(country_path)).getText();
+                    System.out.println("--------");
+                    System.out.println("Giovanni Rovelli is in-"+country_text);
+                }
+                }
             }
 
         }
 
     }
-}
+
