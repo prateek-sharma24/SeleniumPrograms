@@ -1,7 +1,13 @@
 package org.example.ex02_Selenium_Basics;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CommonToAll {
     public void openBrowser(WebDriver driver,String url)
@@ -13,5 +19,15 @@ public class CommonToAll {
     public void closeBrowser(WebDriver driver)
     {
         driver.quit();
+    }
+    public void waitForVisibility(WebDriver driver, int timeInSeconds , String css)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(css)));
+    }
+    public void waitForTextToBePresent(WebDriver driver, int timeInSeconds , String css,String text)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSeconds));
+        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.cssSelector(css)),text));
     }
 }
