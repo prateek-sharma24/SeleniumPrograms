@@ -21,5 +21,6 @@ public class TestSelenium28_Input_Checkbox_Radio {
         //Check Box
         driver.findElement(By.xpath("//input[@id='profession-0']")).click();
 
+
     }
 }
