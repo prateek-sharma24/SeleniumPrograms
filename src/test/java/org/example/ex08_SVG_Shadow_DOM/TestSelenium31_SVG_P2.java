@@ -1,4 +1,4 @@
-package org.example.ex08_SVG;
+package org.example.ex08_SVG_Shadow_DOM;
 
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
