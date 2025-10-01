@@ -1,20 +1,23 @@
 package org.example.ex11_Exception;
 
 import io.qameta.allure.Description;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestSelenium41_Selenium_StaleelementReferenceException {
+public class TestSelenium42_Selenium_NoSuchElement_Actual_Fix {
     ChromeDriver driver;
     @BeforeTest
     public void openBrowser()
     {
         ChromeOptions chromeOptions =new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
-         driver =new ChromeDriver(chromeOptions);
+        driver =new ChromeDriver(chromeOptions);
     }
     @Description("Verify Stale Element Reference Exception")
     @Test
@@ -26,7 +29,9 @@ public class TestSelenium41_Selenium_StaleelementReferenceException {
             driver.navigate().refresh();//HTML page(DOM) is not refreshed
             //Driver will think that element may or may not be available now
             // I have found element before refresh
-            //refresh, navigate other page, change in DOM elements (AJAX Calls)
+            //, navigate other page, change in DOM elements (AJAX Calls)
+            //If you want to fix the satle element exp-refind the elementafter DOMchanges
+            search_box=driver.findElement(By.xpath("//textarea[@id='APjFqb']"));
             search_box.sendKeys("thetestingacademy"+ Keys.ENTER);
         } catch (StaleElementReferenceException e) {
             System.out.println(e.getMessage());

@@ -24,6 +24,6 @@ public class TestSelenium40_Selenium_NoSuchElement {
             System.out.println(e.getMessage());
 
         }
-        driver.quit();
+
     }
 }
